@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="panel intro">
+      <p class="eyebrow">Webbasiertes Snake-Spiel</p>
+      <h1>Snake</h1>
+      <p class="lead">
+        Steuere die Schlange mit den Pfeiltasten oder <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>,
+        sammle Nahrung und vermeide Kollisionen.
+      </p>
+    </section>
+
+    <section class="layout">
+      <aside class="panel controls">
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-label">Punkte</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Highscore</span>
+            <strong id="highscore">0</strong>
+          </div>
+        </div>
+
+        <form id="settings-form" class="settings">
+          <label>
+            Rastergröße
+            <select id="grid-size" name="gridSize">
+              <option value="10">10 x 10</option>
+              <option value="20" selected>20 x 20</option>
+              <option value="30">30 x 30</option>
+            </select>
+          </label>
+
+          <label>
+            Geschwindigkeit
+            <select id="speed" name="speed">
+              <option value="220">Langsam</option>
+              <option value="150" selected>Mittel</option>
+              <option value="90">Schnell</option>
+            </select>
+          </label>
+
+          <div class="actions">
+            <button type="button" id="start-button">Start</button>
+            <button type="button" id="restart-button" class="secondary">Neustart</button>
+          </div>
+        </form>
+
+        <div class="hint-box">
+          <h2>Regeln</h2>
+          <p>Bei Wand- oder Selbstkollision ist das Spiel beendet.</p>
+          <p>Änderungen an Rastergröße oder Tempo starten eine neue Runde.</p>
+        </div>
+      </aside>
+
+      <section class="panel board-panel">
+        <div class="board-header">
+          <h2>Spielfeld</h2>
+          <span id="status" class="status">Bereit zum Start</span>
+        </div>
+        <div class="board-shell">
+          <div id="game-board" class="game-board" aria-label="Snake Spielfeld"></div>
+          <div id="overlay" class="overlay">
+            <div class="overlay-card">
+              <p id="overlay-title">Snake starten</p>
+              <p id="overlay-text">Drücke Start oder eine Pfeiltaste, um zu beginnen.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
